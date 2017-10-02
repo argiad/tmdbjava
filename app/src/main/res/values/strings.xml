@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">The Movie DB</string>
+
+    <string-array name="route_title">
+        <item>Discover Movie</item>
+        <item>Discover TV</item>
+        <item>Search Companies</item>
+        <item>Search Collections</item>
+        <item>Search Keywords</item>
+        <item>Search Movies</item>
+        <item>Multi Search</item>
+        <item>Search People</item>
+        <item>Search TV Shows</item>
+    </string-array>
+
+    <string-array name="route_value">
+        <item>discover/movie?</item>
+        <item>discover/tv?</item>
+        <item>search/company?</item>
+        <item>search/collection?</item>
+        <item>search/keyword?</item>
+        <item>search/movie?</item>
+        <item>search/multi?</item>
+        <item>search/person?</item>
+        <item>search/tv?</item>
+    </string-array>
+
+    <string-array name="sort_title">
+        <item></item>
+        <item>popularity.asc</item>
+        <item>popularity.desc</item>
+        <item>release_date.asc</item>
+        <item>release_date.desc</item>
+        <item>revenue.asc</item>
+        <item>revenue.desc</item>
+        <item>primary_release_date.asc</item>
+        <item>primary_release_date.desc</item>
+        <item>original_title.asc</item>
+        <item>original_title.desc</item>
+        <item>vote_average.asc</item>
+        <item>vote_average.desc</item>
+        <item>vote_count.desc</item>
+        <item>vote_count.asc</item>
+    </string-array>
+
+    <string-array name="sort_value">
+        <item></item>
+        <item>popularity.asc</item>
+        <item>popularity.desc</item>
+        <item>release_date.asc</item>
+        <item>release_date.desc</item>
+        <item>revenue.asc</item>
+        <item>revenue.desc</item>
+        <item>primary_release_date.asc</item>
+        <item>primary_release_date.desc</item>
+        <item>original_title.asc</item>
+        <item>original_title.desc</item>
+        <item>vote_average.asc</item>
+        <item>vote_average.desc</item>
+        <item>vote_count.desc</item>
+        <item>vote_count.asc</item>
+    </string-array>
+</resources>
