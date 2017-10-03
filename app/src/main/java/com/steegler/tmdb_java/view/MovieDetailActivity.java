@@ -25,11 +25,10 @@ public class MovieDetailActivity extends BaseActivity {
     private static final String IMAGE_SIZE = "w150";
     private static final String YT_SERVICE = "YouTube";
 
-    Movie movie;
-    ImageView ivMoviePoster;
-    TextView tvTitle, tvRelease, tvPopularity, tvVotes, tvOverview, tvVoteAverage;
-    WebView webView;
-    Video video;
+    private Movie movie;
+
+    private WebView webView;
+    private Video video;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +42,9 @@ public class MovieDetailActivity extends BaseActivity {
         }
 
         setContentView(R.layout.detail);
+
+        ImageView ivMoviePoster;
+        TextView tvTitle, tvRelease, tvPopularity, tvVotes, tvOverview, tvVoteAverage;
 
         ivMoviePoster = findViewById(R.id.ivMoviePoster);
 
@@ -62,7 +64,7 @@ public class MovieDetailActivity extends BaseActivity {
         tvOverview.setText(movie.getOverview());
         tvVoteAverage.setText(String.format(getString(R.string.movie_average), movie.getVoteAverage()));
 
-        new LoadImage(ivMoviePoster).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, IMAGE_SIZE.concat(movie.getPosterPath()));
+        new LoadImage(ivMoviePoster, lruCache).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, IMAGE_SIZE.concat(movie.getPosterPath()));
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -75,7 +77,6 @@ public class MovieDetailActivity extends BaseActivity {
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setUserAgentString(getString(R.string.user_agent));
 
-//        if (movie.isHasVideo())
         requestVideo(movie.getId());
     }
 

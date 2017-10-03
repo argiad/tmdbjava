@@ -29,19 +29,18 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-    RecyclerView recyclerView;
-    MovieAdapter adapter;
-    RetrieveMovieListTask retrieveTask;
-    LinearLayoutManager layoutManager;
+    private MovieAdapter adapter;
+    private RetrieveMovieListTask retrieveTask;
+    private LinearLayoutManager layoutManager;
 
-    boolean isLoading;
-    int totalResults;
-    int visibleThreshold = 2;
-    String queryText = "";
-    String route = "discover/movie?";
-    String sort = "";
-    Spinner routeSpinner;
-    Spinner sortSpinner;
+    private boolean isLoading;
+    private int totalResults;
+    private int visibleThreshold = 2;
+    private String queryText = "";
+    private String route = "discover/movie?";
+    private String sort = "";
+    private Spinner routeSpinner;
+    private Spinner sortSpinner;
 
     private MenuItem searchItem;
     private MenuItem routeItem;
@@ -59,7 +58,7 @@ public class MainActivity extends BaseActivity {
 
         setContentView(R.layout.main);
 
-        recyclerView = findViewById(R.id.rvMain);
+        RecyclerView recyclerView = findViewById(R.id.rvMain);
         adapter = MovieAdapter.getInstance();
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setAdapter(adapter);

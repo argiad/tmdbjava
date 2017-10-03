@@ -1,8 +1,10 @@
 package com.steegler.tmdb_java.model;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
     private static final String IMAGE_SIZE = "w90";
 
     private List<Movie> movieList = new ArrayList<>();
+
+
+    private final int cacheSize = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+
+    private LruCache<String, Bitmap> lruCache = new LruCache<String, Bitmap>(cacheSize) {
+        @Override
+        protected int sizeOf(String key, Bitmap bitmap) {
+            // The cache size will be measured in kilobytes rather than
+            // number of items.
+            return bitmap.getByteCount() / 1024;
+        }
+    };
 
     public static MovieAdapter getInstance() {
         MovieAdapter adapter = new MovieAdapter();
@@ -51,7 +65,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         holder.ivMoviePoster.setImageBitmap(null);
 
         // Request image for movie
-        new LoadImage(holder.ivMoviePoster).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, IMAGE_SIZE.concat(movie.getPosterPath()));
+        new LoadImage(holder.ivMoviePoster, lruCache).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, IMAGE_SIZE.concat(movie.getPosterPath()));
     }
 
     @Override
