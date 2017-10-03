@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
+ * RecyclerView Listener for intercept touch and swipe
+ *
  * Created by argi on 10/1/17.
  */
 

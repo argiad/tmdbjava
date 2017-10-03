@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.steegler.tmdb_java.R;
 
 /**
+ * Item ViewHolder for Movie List
  * Created by argi on 10/1/17.
  */
 

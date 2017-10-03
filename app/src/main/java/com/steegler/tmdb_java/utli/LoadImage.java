@@ -13,11 +13,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
+ * Simple Async ImageLoader
+ *
  * Created by argi on 10/1/17.
  */
 
 
 public class LoadImage extends AsyncTask<String, Void, Bitmap> {
+
+    private static final String IMAGE_URL = "https://image.tmdb.org/t/p/%s";
 
     private final WeakReference<ImageView> imageViewReference;
 
@@ -29,7 +33,7 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
     protected Bitmap doInBackground(String... params) {
         if (params.length > 0)
             try {
-                String url = String.format("https://image.tmdb.org/t/p/%s", (String) params[0]);
+                String url = String.format(IMAGE_URL, (String) params[0]);
                 return downloadBitmap(url);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -73,7 +77,6 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            urlConnection.disconnect();
             Log.w("ImageDownloader", "Error downloading image from " + url);
         } finally {
             if (urlConnection != null) {

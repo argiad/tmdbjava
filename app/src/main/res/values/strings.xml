@@ -1,27 +1,23 @@
 <resources>
     <string name="app_name">The Movie DB</string>
+    <string name="youtube">&lt;iframe class="youtube-player" style="border: 0; width: 100%; height: 95%; padding:0px; margin:0px" id="ytplayer" type="text/html" src="http://www.youtube.com/embed/%s" frameborder="0">\n&lt;/iframe></string>
+    <string name="item_movie_release">Release at: %s</string>
+    <string name="item_movie_popularity">Popularity %s</string>
+    <string name="item_movie_votes">Votes: %d</string>
+    <string name="movie_average">Average: %d</string>
+    <string name="user_agent">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.36 (KHTML, like Gecko) Chrome/13.0.766.0 Safari/534.36</string>
 
     <string-array name="route_title">
         <item>Discover Movie</item>
         <item>Discover TV</item>
-        <item>Search Companies</item>
-        <item>Search Collections</item>
-        <item>Search Keywords</item>
         <item>Search Movies</item>
-        <item>Multi Search</item>
-        <item>Search People</item>
         <item>Search TV Shows</item>
     </string-array>
 
     <string-array name="route_value">
         <item>discover/movie?</item>
         <item>discover/tv?</item>
-        <item>search/company?</item>
-        <item>search/collection?</item>
-        <item>search/keyword?</item>
         <item>search/movie?</item>
-        <item>search/multi?</item>
-        <item>search/person?</item>
         <item>search/tv?</item>
     </string-array>
 
